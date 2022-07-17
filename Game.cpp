@@ -14,6 +14,11 @@ void Game::render()
     SDL_SetRenderDrawColor(App::getRenderer(),0,255,0,255);
     SDL_RenderClear(App::getRenderer());
     board.render();
+
+    if(state==STATE_STOPPED)
+    {
+        board.message(xIsNext);
+    }
     SDL_RenderPresent(App::getRenderer());
 
 }
@@ -23,7 +28,7 @@ void Game::update(SDL_Event* event)
     if(state==STATE_STOPPED)
     {
         resetGame();
-        SDL_Delay(1400);
+        SDL_Delay(2000);
         board.restart();
         return;
     }

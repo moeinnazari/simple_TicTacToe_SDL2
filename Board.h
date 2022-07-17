@@ -15,6 +15,7 @@ public:
     bool checkwin();
 
 
+    void message(bool xIsNext);
 
 private:
     Piece matrix[3][3];

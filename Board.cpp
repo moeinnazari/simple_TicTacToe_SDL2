@@ -157,4 +157,21 @@ void Board::renderPieces()
 }
 
 
-
+void Board::message(bool xIsNext)
+{
+    if(!xIsNext && numberOfCell!=9)
+    {
+        Utility::drawXWinner();
+       // std::cout<<"x is winner\n";
+    }
+    else if(xIsNext && numberOfCell!=9)
+    {
+        Utility::drawOWinner();
+       // std::cout<<"o is winner\n";
+    }
+    else
+    {
+        Utility::drawEqual();
+      //  std::cout<<"NO winner\n";
+    }
+}

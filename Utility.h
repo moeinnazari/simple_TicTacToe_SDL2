@@ -6,6 +6,9 @@ public:
     static void drawX(int r,int c);
     static void drawO(int r,int c);
 
+    static void drawXWinner();
+    static void drawOWinner();
+    static void drawEqual();
 
 
 };
