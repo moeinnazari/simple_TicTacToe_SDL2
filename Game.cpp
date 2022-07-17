@@ -27,8 +27,9 @@ void Game::update(SDL_Event* event)
 {
     if(state==STATE_STOPPED)
     {
+        SDL_Delay(1500);
         resetGame();
-        SDL_Delay(2000);
+
         board.restart();
         return;
     }
