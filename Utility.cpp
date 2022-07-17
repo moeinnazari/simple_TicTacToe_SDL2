@@ -20,9 +20,10 @@ void Utility::drawX(int r,int c)
 
 void Utility::drawO(int r,int c)
 {
-    int w=60;
-        SDL_Rect rect={(190+c*100),(110+r*100),60,60};
-        SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
+    //draw square
+     SDL_Rect rect={(190+c*100),(110+r*100),60,60};
+
+     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
      SDL_RenderDrawRect(App::getRenderer(),&rect);
 }
 
