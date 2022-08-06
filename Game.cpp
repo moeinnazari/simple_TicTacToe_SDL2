@@ -76,6 +76,10 @@ void Game::resetGame()
 
 }
 
+Game::~Game()
+{
+
+}
 
 
 

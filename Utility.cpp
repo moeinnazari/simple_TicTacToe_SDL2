@@ -2,11 +2,12 @@
 #include <SDL.h>
 #include "App.h"
 #include <iostream>
+#include <math.h>
 
 void Utility::drawX(int r,int c)
 {
-    int width=80;
-    int height=80;
+    //int width=80;
+    //int height=80;
 
      //draw X
      SDL_SetRenderDrawColor(App::getRenderer(),0,0,255,255);
@@ -18,7 +19,7 @@ void Utility::drawX(int r,int c)
 
 }
 
-void Utility::drawO(int r,int c)
+/*void Utility::drawO(int r,int c)
 {
     //draw square
      SDL_Rect rect={(190+c*100),(110+r*100),60,60};
@@ -26,6 +27,38 @@ void Utility::drawO(int r,int c)
      SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
      SDL_RenderDrawRect(App::getRenderer(),&rect);
 }
+*/
+
+void Utility::drawO(int r,int c)
+{
+    //int fieldW = 190;
+    //int fieldH = 110;
+
+    int point1=std::abs((150+c*100+100)-(190+c*100));
+    int point2=std::abs((70+r*100+100)-(110+r*100));
+    int centerX =(190+c*100)+30;
+    int centerY = (110+r*100)+30;
+
+    int radious = 30;
+
+    double step = 2*M_PI/30;
+    int endX = centerX + radious;
+    int endY = centerY;
+
+     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
+    for(double angle=0; angle<2*M_PI; angle+=step)
+    {
+        int startX = endX;
+        int startY = endY;
+        endX = radious * std::cos(angle) + centerX;
+        endY = radious * std::sin(angle) + centerY;
+        SDL_RenderDrawLine(App::getRenderer(), startX, startY, endX, endY);
+    }
+}
+
+
+
+
 
 void Utility::drawXWinner()
 {
@@ -47,16 +80,43 @@ void Utility::drawXWinner()
 
 void Utility::drawOWinner()
 {
-     SDL_Rect rect={30,200,60,60};
+     int centerX =80;
+    int centerY = 250;
+
+    int radious = 30;
+
+    double step = 2*M_PI/30;
+    int endX = centerX + radious;
+    int endY = centerY;
 
      SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
-     SDL_RenderDrawRect(App::getRenderer(),&rect);
+    for(double angle=0; angle<2*M_PI; angle+=step)
+    {
+        int startX = endX;
+        int startY = endY;
+        endX = radious * std::cos(angle) + centerX;
+        endY = radious * std::sin(angle) + centerY;
+        SDL_RenderDrawLine(App::getRenderer(), startX, startY, endX, endY);
+    }
 
-      rect.x=500;
-      rect.y=200;
+     centerX =550;
+     centerY = 250;
+
+     radious = 30;
+
+     step = 2*M_PI/30;
+     endX = centerX + radious;
+     endY = centerY;
+
      SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
-     SDL_RenderDrawRect(App::getRenderer(),&rect);
-
+    for(double angle=0; angle<2*M_PI; angle+=step)
+    {
+        int startX = endX;
+        int startY = endY;
+        endX = radious * std::cos(angle) + centerX;
+        endY = radious * std::sin(angle) + centerY;
+        SDL_RenderDrawLine(App::getRenderer(), startX, startY, endX, endY);
+    }
 }
 
 void Utility::drawEqual()
@@ -90,3 +150,13 @@ void Utility::drawEqual()
 
 }
 
+/*SDL_Rect rect={30,200,60,60};
+
+     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
+     SDL_RenderDrawRect(App::getRenderer(),&rect);
+
+      rect.x=500;
+      rect.y=200;
+     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
+     SDL_RenderDrawRect(App::getRenderer(),&rect);
+     */

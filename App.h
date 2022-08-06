@@ -3,7 +3,7 @@
 #include "Game.h"
 #include <SDL.h>
 #include <SDL_image.h>
-
+#include <memory>
 class Game;
 
 class App{
@@ -21,7 +21,7 @@ public:
       static SDL_Window* getWindow()  {return m_Window;}
 
 private:
-    Game* game;
+    std::unique_ptr<Game> game;
     static SDL_Renderer* m_Renderer;
     static SDL_Window* m_Window;
     SDL_Event event;

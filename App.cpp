@@ -6,7 +6,7 @@ SDL_Window* App::m_Window=0;
 
 App::App()
 {
-  game=new Game();
+  game=std::unique_ptr<Game>(new Game());
 }
 
 App::~App()

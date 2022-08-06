@@ -175,3 +175,9 @@ void Board::message(bool xIsNext)
       //  std::cout<<"NO winner\n";
     }
 }
+
+
+Board::~Board()
+{
+
+}
