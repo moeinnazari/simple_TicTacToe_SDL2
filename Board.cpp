@@ -33,12 +33,15 @@ bool Board::isCellEmpty(int r,int c)
     return false;
 }
 
-void Board::drawCell(int r,int c,bool xIsNext)
+bool Board::drawCell(int r,int c,bool xIsNext)
 {
-    if(r>=0 && r<3 && c>=0 && c<3 && numberOfCell<9)
+    if(r>=0 && r<3 && c>=0 && c<3 && numberOfCell<9 && matrix[r][c]==EMPTY)
+    {
         matrix[r][c]=(xIsNext) ? X:O;
-
-    numberOfCell++;
+        numberOfCell++;
+        return true;
+    }
+    return false;
 
 }
 

@@ -33,8 +33,7 @@ void Utility::drawO(int r,int c)
 {
 
 
-    int point1=std::abs((150+c*100+100)-(190+c*100));
-    int point2=std::abs((70+r*100+100)-(110+r*100));
+
     int centerX =(190+c*100)+30;
     int centerY = (110+r*100)+30;
 
@@ -103,7 +102,10 @@ void Utility::drawOWinner()
 
      radious = 30;
 
-     step = 2*M_PI/30;
+
+   radious = 30;
+
+    step = 2*M_PI/30;
      endX = centerX + radious;
      endY = centerY;
 

@@ -10,7 +10,7 @@ public:
     void restart();
 
     bool isCellEmpty(int r,int c);
-    void drawCell(int r,int c,bool xIsNext=true);
+    bool drawCell(int r,int c,bool xIsNext=true);
     bool isFull();
     bool checkwin();
 

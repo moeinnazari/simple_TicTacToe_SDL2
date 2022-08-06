@@ -25,6 +25,7 @@ void Game::render()
 
 void Game::update(SDL_Event* event)
 {
+
     if(state==STATE_STOPPED)
     {
         SDL_Delay(1500);
@@ -36,18 +37,25 @@ void Game::update(SDL_Event* event)
 
     if(event->type==SDL_MOUSEBUTTONDOWN)
     {
+
         int x,y;
+
         SDL_GetMouseState(&x,&y);
 
         int row=(y>90 && y<390) ? ((y-90)/(SCREEN_BOARD/3)):-1;
         int col=(x>170 && x<470) ? ((x-170)/(SCREEN_BOARD/3)):-1;
         if(row!=-1 && col!=-1){
-            board.drawCell(row,col,xIsNext);
+
+           if(board.drawCell(row,col,xIsNext))
+           {
            // std::cout<<"x:\t"<<x<<"\ny:\t"<<y<<"\n";
            // std::cout<<"row\t"<<row<<"\ncol\t"<<col<<"\n";
             xIsNext=!xIsNext;
+           }
+
         }
     }
+
 }
 
 
