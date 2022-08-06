@@ -31,8 +31,7 @@ void Utility::drawX(int r,int c)
 
 void Utility::drawO(int r,int c)
 {
-    //int fieldW = 190;
-    //int fieldH = 110;
+
 
     int point1=std::abs((150+c*100+100)-(190+c*100));
     int point2=std::abs((70+r*100+100)-(110+r*100));
@@ -150,13 +149,3 @@ void Utility::drawEqual()
 
 }
 
-/*SDL_Rect rect={30,200,60,60};
-
-     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
-     SDL_RenderDrawRect(App::getRenderer(),&rect);
-
-      rect.x=500;
-      rect.y=200;
-     SDL_SetRenderDrawColor(App::getRenderer(),255,0,0,255);
-     SDL_RenderDrawRect(App::getRenderer(),&rect);
-     */
